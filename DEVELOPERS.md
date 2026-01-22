@@ -27,3 +27,18 @@ lerna bootstrap
 ```
 
 [apdev]: https://github.com/accordproject/techdocs/blob/master/DEVELOPERS.md
+### Common Development Issues
+
+#### ESLint reports a very large number of errors
+If you encounter thousands of ESLint errors (often pointing to files inside `dist/`
+directories), this usually means generated build artifacts are being linted.
+
+These files are generated automatically and should not be edited or committed.
+
+To reset your working tree and resolve this issue:
+
+```bash
+git clean -fdx
+npm install
+npm run lint
+```
